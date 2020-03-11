@@ -1,22 +1,25 @@
 {
-  "name": "back",
+  "name": "secu-app",
   "version": "0.0.0",
   "private": true,
   "description": "application crée à des fin de tester des fail de sécurité existant avec angular/express",
   "main": "app.js",
   "scripts": {
     "start-prod": "node ./bin/www",
-    "start": "nodemon ./bin/www"
+    "start": "set DEBUG=secu-app:* &&nodemon ./bin/www --exec babel-node -e js"
   },
   "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
+    "babel-preset-env": "^1.7.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "lowdb": "^1.0.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
