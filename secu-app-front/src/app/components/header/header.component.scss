@@ -1,0 +1,72 @@
+@import '../../../assets/color-config.scss';
+
+#app-header {
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    background-color: $app_theme;
+    color: $app_color;
+    height: 51px;
+    min-height: 31px;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 15px;
+    border-bottom: 1px $multicolor1 solid;
+
+    & > {
+        #main-header {
+            width: 100%;
+            height: 100%;
+            line-height: 51px;
+            display: inline-flex;
+            margin-left: 0;
+            margin-right: 0;
+            & {
+                #logo {
+                    /*width: 130px;
+                    height: 51px;*/
+                    // background: transparent url(../../../assets/images/icons-puzzle.svg) no-repeat center;
+                }
+                #app-name {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    padding: 0;
+                    cursor: pointer;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                #free-area-header {
+                    padding: 0 50px;
+                }
+
+                i {
+                    cursor: pointer;
+                }               
+            }
+        }
+        #multicolor-header-footer {
+            height: 1px;
+            z-index: 999;
+            position: absolute;
+            top: 31px; left: 0; right: 0;
+            & > {
+                .multicolor1 {
+                    background-color: $multicolor1;
+                }
+            }
+        } 
+    }
+}
+
+.col-custom {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.chat:hover {
+    color: $app_color_light;
+}

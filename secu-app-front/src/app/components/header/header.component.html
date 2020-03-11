@@ -1,0 +1,23 @@
+<div id="app-header">
+    <div id="main-header" class="col row">
+        <div id="logo" class="col-auto">
+            <i class="fa fa-user-secret fa-7x"></i>
+        </div>
+        <div id="app-name" class="col-auto">> Labo sécurité web </div>
+        <div id="free-aera-header" class="col row">
+            <div class="col-auto"></div>
+            <div class="col"></div>
+            <div class="col-auto">Nicolas Marmot</div>
+            <div class="col-auto d-inline-block">
+                <div ngbDropdown>
+                    <i id="dropdownBasic1" class="fa fa-user" ngbDropdownToggle> | {{ user_right?.name | uppercase }}</i>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button (click)="logout();" ngbDropdownItem>Logout</button>
+                        <button (click)="openModal(loginModal)" ngbDropdownItem>Login</button>
+                    </div>
+                </div>        
+            </div>
+
+        </div>
+    </div>
+</div>
