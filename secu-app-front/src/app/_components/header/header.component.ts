@@ -11,13 +11,10 @@ import { User } from 'src/app/_models/user';
 })
 export class HeaderComponent implements OnInit {
 
-  public currentUser: User;
-
   constructor(
     private auth: AuthenticationService
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.auth.currentUserValue;
   }
 }

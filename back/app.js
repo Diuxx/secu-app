@@ -1,3 +1,5 @@
+'use strict';
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,7 +11,14 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var rightRouter = require('./routes/right');
 
+// allow acces from any ip
+var cors = require('cors');
+
 var app = express();
+app.set('trust proxy', true);
+
+/* That’s it. CORS is now enabled. */
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

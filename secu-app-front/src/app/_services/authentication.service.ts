@@ -1,4 +1,4 @@
-﻿﻿import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 import { UserService } from './user.service';
 import { RightService } from './right.service';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -20,7 +21,8 @@ export class AuthenticationService {
     constructor(
         private http: HttpClient,
         private userService: UserService,
-        private rightService: RightService
+        private rightService: RightService,
+        private router: Router
     ) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
@@ -41,7 +43,9 @@ export class AuthenticationService {
 
                 localStorage.setItem('currentUser', JSON.stringify(u))
                 this.currentUserSubject.next(this.user);
+                
                 // reload
+                this.router.navigate(['/home']);
             }, err => {
                 console.log('err => rights');
             })
