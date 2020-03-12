@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +11,13 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
+  public currentUser: User;
+
   constructor(
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit() {
+    this.currentUser = this.auth.currentUserValue;
   }
 }
