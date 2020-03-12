@@ -3,17 +3,16 @@
         <div id="logo" class="col-auto">
             <i class="fa fa-user-secret fa-7x"></i>
         </div>
-        <div id="app-name" class="col-auto">> Labo sécurité web </div>
+        <div id="app-name" class="col-auto" (click)="router.navigate(['/home'])">> Labo sécurité web </div>
         <div id="free-aera-header" class="col row">
             <div class="col-auto"></div>
             <div class="col"></div>
-            <div class="col-auto">Nicolas Marmot</div>
+            <div class="col-auto">{{ auth?.currentUserValue?.firstname | titlecase }} {{ auth?.currentUserValue?.lastname | titlecase }}</div>
             <div class="col-auto d-inline-block">
                 <div ngbDropdown>
-                    <i id="dropdownBasic1" class="fa fa-user" ngbDropdownToggle> | {{ user_right?.name | uppercase }}</i>
+                    <i id="dropdownBasic1" class="fa fa-user" ngbDropdownToggle> | {{ auth?.currentUserValue?.right | uppercase }}</i>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button (click)="logout();" ngbDropdownItem>Logout</button>
-                        <button (click)="openModal(loginModal)" ngbDropdownItem>Login</button>
+                        <button *ngIf="auth.currentUserValue" (click)="auth.logout();" ngbDropdownItem>Logout</button>
                     </div>
                 </div>        
             </div>
